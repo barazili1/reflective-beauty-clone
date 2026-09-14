@@ -9,7 +9,7 @@ import gasNewIcon from "@/assets/icon-gas-new.asset.json";
 import gasIcon from "@/assets/icon-gas.asset.json";
 import offerBanner from "@/assets/offer-banner.jpg";
 import prosecutionIcon from "@/assets/icon-prosecution.asset.json";
-import vodafoneCashLogo from "@/assets/cash-logo.asset.json";
+import { PinSheet } from "@/components/pin-sheet";
 import cashLogoClean from "@/assets/cash-logo-clean.jpeg.asset.json";
 import loadingLogo from "@/assets/vodafone-loading-logo.png.asset.json";
 import { getTransfers, formatArabicNumber, formatArabicDate, type TransferRecord } from "@/lib/transfer-history";

@@ -30,19 +30,25 @@ function ConfirmPage() {
   const navigate = useNavigate();
   const [greeting, setGreeting] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
+  const [pinOpen, setPinOpen] = useState(false);
   const senderName = useMemo(() => getSenderNameForPhone(phone), [phone]);
   const total = amount.toFixed(1);
 
   const handleConfirm = () => {
-    if (confirmLoading) return;
+    if (confirmLoading || pinOpen) return;
     setConfirmLoading(true);
-    const delay = 3000 + Math.random() * 7000;
     setTimeout(() => {
-      void navigate({
-        to: "/success",
-        search: { amount, phone, senderName },
-      });
-    }, delay);
+      setConfirmLoading(false);
+      setPinOpen(true);
+    }, 1500);
+  };
+
+  const handlePinComplete = () => {
+    setPinOpen(false);
+    void navigate({
+      to: "/success",
+      search: { amount, phone, senderName },
+    });
   };
 
   return (
