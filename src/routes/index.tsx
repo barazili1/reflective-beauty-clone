@@ -505,13 +505,13 @@ function Index() {
         aria-label="التنقل الرئيسي"
       >
         <Button variant="nav" size="nav" className="text-alert">
-          <span className="grid size-7 place-items-center">
+          <span className="grid size-7 place-items-center rounded-full bg-white shadow-sm ring-1 ring-black/5">
             <img
               src={vodafoneCashLogo.url}
               alt="المحفظة"
               width={90}
               height={110}
-              className="size-7 rounded-full object-cover"
+              className="h-6 w-auto object-contain"
             />
           </span>
           <span className="mt-1 text-[11px] font-bold">المحفظة</span>
