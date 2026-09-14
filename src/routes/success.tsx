@@ -85,10 +85,15 @@ function ScallopBadge({ size = 80 }: { size?: number }) {
 function SuccessPage() {
   const { amount, phone, senderName } = Route.useSearch();
   const [date, setDate] = useState("");
-  const txNumber = useMemo(
-    () => String(Math.floor(Math.random() * 900000000000) + 100000000000),
-    [],
-  );
+  // Deterministic reference number (stable across SSR/client hydration)
+  const txNumber = useMemo(() => {
+    const seed = `${amount}|${phone}|${senderName}`;
+    let h = 5381;
+    for (let i = 0; i < seed.length; i++) {
+      h = (h * 33) ^ seed.charCodeAt(i);
+    }
+    return String(100000000000 + (Math.abs(h) % 900000000000));
+  }, [amount, phone, senderName]);
 
   useEffect(() => {
     const now = new Date();
@@ -135,7 +140,7 @@ function SuccessPage() {
       <div className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-2">
         <div
           dir="rtl"
-          className="flex w-full max-w-[400px] items-start gap-3 rounded-[22px] bg-[#45454a]/95 px-4 py-3 shadow-[0_4px_18px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform"
+          className="flex w-full max-w-[400px] items-start gap-3 rounded-[22px] bg-[#3a3a3e]/70 px-4 py-3 shadow-[0_4px_18px_rgba(0,0,0,0.25)] backdrop-blur-xl transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform"
           style={{
             transform: showNotif ? "translateY(0)" : "translateY(-160%)",
             fontFamily:
@@ -148,13 +153,13 @@ function SuccessPage() {
               className="grid size-[42px] place-items-center rounded-full"
               style={{
                 background:
-                  "linear-gradient(135deg, #97A5CF 0%, #7d8cc0 100%)",
+                  "linear-gradient(135deg, #B6C0E4 0%, #9BAA D3 100%)",
               }}
             >
-              <User className="size-[22px] text-white" strokeWidth={2} />
+              <User className="size-[24px] text-white" fill="white" strokeWidth={1} />
             </div>
-            <div className="absolute -bottom-1.5 left-0 grid size-[20px] place-items-center rounded-[6px] bg-[#64D65F] shadow-sm">
-              <MessageCircle className="size-[12px] text-white" strokeWidth={2.5} />
+            <div className="absolute -bottom-1.5 left-0 grid size-[20px] place-items-center rounded-[6px] bg-[#34C759] shadow-sm">
+              <MessageCircle className="size-[12px] text-white" fill="white" strokeWidth={1.5} />
             </div>
           </div>
           {/* Text column */}
