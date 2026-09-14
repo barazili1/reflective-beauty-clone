@@ -508,15 +508,15 @@ function Index() {
       >
         <Button variant="nav" size="nav" className="text-alert">
           <span
-            className="grid place-items-center overflow-hidden rounded-full bg-white"
-            style={{ height: "1.75rem", width: "1.75rem" }}
+            className="flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-white"
+            style={{ height: "28px", width: "28px" }}
           >
             <img
               src={cashLogoClean.url}
               alt="المحفظة"
               width={28}
               height={28}
-              className="h-full w-full rounded-full object-cover object-[center_25%]"
+              className="h-[28px] w-[28px] rounded-full object-cover object-[center_25%]"
             />
           </span>
           <span className="mt-1 text-[11px] font-bold">المحفظة</span>
