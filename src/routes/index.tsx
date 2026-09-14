@@ -504,14 +504,16 @@ function Index() {
         className="fixed bottom-0 left-1/2 z-20 flex h-[66px] w-full max-w-[430px] -translate-x-1/2 items-center justify-around bg-panel px-3 shadow-[0_-4px_18px_color-mix(in_oklab,var(--foreground)_8%,transparent)]"
         aria-label="التنقل الرئيسي"
       >
-        <Button variant="nav" size="nav" className="bg-muted text-alert">
-          <img
-            src={vodafoneCashLogo.url}
-            alt="المحفظة"
-            width={90}
-            height={110}
-            className="h-12 w-auto object-contain"
-          />
+        <Button variant="nav" size="nav" className="text-alert">
+          <span className="grid size-7 place-items-center rounded-full bg-alert/10">
+            <img
+              src={vodafoneCashLogo.url}
+              alt="المحفظة"
+              width={90}
+              height={110}
+              className="h-6 w-auto object-contain"
+            />
+          </span>
           <span className="mt-1 text-[11px] font-bold">المحفظة</span>
         </Button>
         <Button variant="nav" size="nav" onClick={goToTransfer}>
