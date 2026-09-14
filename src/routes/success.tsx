@@ -299,7 +299,7 @@ function SuccessPage() {
           <img
             src={vodafoneCashCombo.url}
             alt="فودافون كاش"
-            className="h-[44px] w-auto object-contain"
+            className="h-[32px] w-auto object-contain"
           />
         </div>
         <div className="flex gap-2.5">
