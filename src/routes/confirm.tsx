@@ -46,10 +46,14 @@ function ConfirmPage() {
 
   const handlePinComplete = () => {
     setPinOpen(false);
-    void navigate({
-      to: "/success",
-      search: { amount, phone, senderName },
-    });
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setConfirmLoading(false);
+      void navigate({
+        to: "/success",
+        search: { amount, phone, senderName },
+      });
+    }, 3000 + Math.random() * 2000);
   };
 
   return (

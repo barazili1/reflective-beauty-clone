@@ -3,7 +3,7 @@ import { Check, ChevronRight, MessageCircle, Share2, User } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import cashLogo from "@/assets/kashla-logo.asset.json";
-import vodafoneCashLogo from "@/assets/cash-logo.asset.json";
+import vodafoneCashCombo from "@/assets/vodafone-cash-combo.png.asset.json";
 import cashWatermark from "@/assets/cash-watermark.png.asset.json";
 import iphoneSound from "@/assets/iphone-notification.m4a.asset.json";
 import { addTransfer } from "@/lib/transfer-history";
@@ -81,26 +81,19 @@ function ScallopBadge({ size = 80 }: { size?: number }) {
   );
 }
 
-/** Simplified red Vodafone circular logo */
-function VodafoneRedLogo({ size = 36 }: { size?: number }) {
-  return (
-    <svg viewBox="0 0 48 48" width={size} height={size}>
-      <circle cx="24" cy="24" r="20" fill="#e60000" />
-      <path
-        d="M 28 15 C 21 15 17 21 17 27 C 17 32 20 35 24 35 C 23 33 22 31 23 28 C 25 24 29 23 31 25 C 30 21 29 18 28 15 Z"
-        fill="white"
-      />
-    </svg>
-  );
-}
 
 function SuccessPage() {
   const { amount, phone, senderName } = Route.useSearch();
   const [date, setDate] = useState("");
-  const txNumber = useMemo(
-    () => String(Math.floor(Math.random() * 900000000000) + 100000000000),
-    [],
-  );
+  // Deterministic reference number (stable across SSR/client hydration)
+  const txNumber = useMemo(() => {
+    const seed = `${amount}|${phone}|${senderName}`;
+    let h = 5381;
+    for (let i = 0; i < seed.length; i++) {
+      h = (h * 33) ^ seed.charCodeAt(i);
+    }
+    return String(100000000000 + (Math.abs(h) % 900000000000));
+  }, [amount, phone, senderName]);
 
   useEffect(() => {
     const now = new Date();
@@ -147,7 +140,7 @@ function SuccessPage() {
       <div className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-2">
         <div
           dir="rtl"
-          className="flex w-full max-w-[400px] items-start gap-3 rounded-[22px] bg-[#45454a]/95 px-4 py-3 shadow-[0_4px_18px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform"
+          className="flex w-full max-w-[400px] items-start gap-3 rounded-[22px] bg-[#3a3a3e]/70 px-4 py-3 shadow-[0_4px_18px_rgba(0,0,0,0.25)] backdrop-blur-xl transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform"
           style={{
             transform: showNotif ? "translateY(0)" : "translateY(-160%)",
             fontFamily:
@@ -160,13 +153,13 @@ function SuccessPage() {
               className="grid size-[42px] place-items-center rounded-full"
               style={{
                 background:
-                  "linear-gradient(135deg, #97A5CF 0%, #7d8cc0 100%)",
+                  "linear-gradient(135deg, #B6C0E4 0%, #9BAAD3 100%)",
               }}
             >
-              <User className="size-[22px] text-white" strokeWidth={2} />
+              <User className="size-[24px] text-white" fill="white" strokeWidth={1} />
             </div>
-            <div className="absolute -bottom-1.5 left-0 grid size-[20px] place-items-center rounded-[6px] bg-[#64D65F] shadow-sm">
-              <MessageCircle className="size-[12px] text-white" strokeWidth={2.5} />
+            <div className="absolute -bottom-1.5 left-0 grid size-[20px] place-items-center rounded-[6px] bg-[#34C759] shadow-sm">
+              <MessageCircle className="size-[12px] text-white" fill="white" strokeWidth={1.5} />
             </div>
           </div>
           {/* Text column */}
@@ -314,14 +307,12 @@ function SuccessPage() {
 
       {/* Footer logos + buttons */}
       <div className="shrink-0 px-5 pb-3 pt-2">
-        <div className="mb-3 flex items-center justify-center gap-3">
+        <div className="mb-3 flex items-center justify-center">
           <img
-            src={vodafoneCashLogo.url}
-            alt="كاش"
-            className="h-[40px] w-auto object-contain"
+            src={vodafoneCashCombo.url}
+            alt="فودافون كاش"
+            className="h-[44px] w-auto object-contain"
           />
-          <div className="h-[36px] w-px bg-[#e60000]" />
-          <VodafoneRedLogo size={36} />
         </div>
         <div className="flex gap-2.5">
           <button
