@@ -175,7 +175,7 @@ function SuccessPage() {
               <span className="text-[14px] font-bold leading-none text-white">
                 VF-Cash
               </span>
-              <span className="text-[11px] leading-none text-white/55">الآن</span>
+              <span className="text-[12px] leading-none text-white/60">الآن</span>
             </div>
             <p className="mt-1.5 text-[13px] leading-[1.35] text-white">
               تم تحويل {amount} جنيه لرقم {phone || "01151146419"} مصاريف
