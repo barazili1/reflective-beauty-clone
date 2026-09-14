@@ -165,8 +165,8 @@ function SuccessPage() {
             >
               <User className="size-[22px] text-white" strokeWidth={2} />
             </div>
-            <div className="absolute -bottom-1 left-0 grid size-[24px] place-items-center rounded-[7px] bg-[#64D65F] shadow-sm">
-              <MessageCircle className="size-[14px] text-white" strokeWidth={2.5} />
+            <div className="absolute -bottom-1.5 left-0 grid size-[20px] place-items-center rounded-[6px] bg-[#64D65F] shadow-sm">
+              <MessageCircle className="size-[12px] text-white" strokeWidth={2.5} />
             </div>
           </div>
           {/* Text column */}
