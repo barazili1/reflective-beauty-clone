@@ -147,7 +147,7 @@ function SuccessPage() {
       <div className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-2">
         <div
           dir="rtl"
-          className="flex w-full max-w-[400px] items-start gap-3 rounded-[26px] bg-[#3c3c3e] px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform"
+          className="flex w-full max-w-[400px] items-start gap-2.5 rounded-[19px] bg-[#3c3c3e] px-3.5 py-2.5 shadow-[0_4px_16px_rgba(0,0,0,0.28)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform"
           style={{
             transform: showNotif ? "translateY(0)" : "translateY(-160%)",
             fontFamily:
