@@ -81,18 +81,6 @@ function ScallopBadge({ size = 80 }: { size?: number }) {
   );
 }
 
-/** Simplified red Vodafone circular logo */
-function VodafoneRedLogo({ size = 36 }: { size?: number }) {
-  return (
-    <svg viewBox="0 0 48 48" width={size} height={size}>
-      <circle cx="24" cy="24" r="20" fill="#e60000" />
-      <path
-        d="M 28 15 C 21 15 17 21 17 27 C 17 32 20 35 24 35 C 23 33 22 31 23 28 C 25 24 29 23 31 25 C 30 21 29 18 28 15 Z"
-        fill="white"
-      />
-    </svg>
-  );
-}
 
 function SuccessPage() {
   const { amount, phone, senderName } = Route.useSearch();
@@ -314,14 +302,12 @@ function SuccessPage() {
 
       {/* Footer logos + buttons */}
       <div className="shrink-0 px-5 pb-3 pt-2">
-        <div className="mb-3 flex items-center justify-center gap-3">
+        <div className="mb-3 flex items-center justify-center">
           <img
-            src={vodafoneCashLogo.url}
-            alt="كاش"
-            className="h-[40px] w-auto object-contain"
+            src={vodafoneCashCombo.url}
+            alt="فودافون كاش"
+            className="h-[44px] w-auto object-contain mix-blend-multiply"
           />
-          <div className="h-[36px] w-px bg-[#e60000]" />
-          <VodafoneRedLogo size={36} />
         </div>
         <div className="flex gap-2.5">
           <button
