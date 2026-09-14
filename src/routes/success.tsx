@@ -153,7 +153,7 @@ function SuccessPage() {
               className="grid size-[42px] place-items-center rounded-full"
               style={{
                 background:
-                  "linear-gradient(135deg, #B6C0E4 0%, #9BAA D3 100%)",
+                  "linear-gradient(135deg, #B6C0E4 0%, #9BAAD3 100%)",
               }}
             >
               <User className="size-[24px] text-white" fill="white" strokeWidth={1} />
