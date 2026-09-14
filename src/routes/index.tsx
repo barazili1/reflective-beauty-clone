@@ -108,6 +108,16 @@ function ServicesIcon(props: IconProps) {
   );
 }
 
+function WalletIcon(props: IconProps) {
+  return (
+    <svg {...iconDefaults} {...props}>
+      <path d="M10 14h28a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4Z" />
+      <path d="M10 14V10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v2" />
+      <circle cx="32" cy="26" r="2.5" />
+    </svg>
+  );
+}
+
 const shortcuts = [
   {
     label: (
