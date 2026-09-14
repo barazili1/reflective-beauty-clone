@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import cashLogo from "@/assets/kashla-logo.asset.json";
 import cashWatermark from "@/assets/cash-watermark.png.asset.json";
 import loadingLogo from "@/assets/vodafone-loading-logo.png.asset.json";
+import { PinSheet } from "@/components/pin-sheet";
 import { getSenderNameForPhone } from "@/lib/sender-names";
 
 export const Route = createFileRoute("/confirm")({
@@ -167,6 +168,10 @@ function ConfirmPage() {
           تأكيد
         </button>
       </div>
+
+      {pinOpen && (
+        <PinSheet onClose={() => setPinOpen(false)} onComplete={handlePinComplete} />
+      )}
 
       {confirmLoading && (
         <div className="fixed inset-0 z-40 mx-auto flex max-w-[430px] flex-col items-center justify-center bg-[#7a7a7a]/90">
