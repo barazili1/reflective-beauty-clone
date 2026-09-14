@@ -505,21 +505,27 @@ function Index() {
         aria-label="التنقل الرئيسي"
       >
         <Button variant="nav" size="nav" className="text-alert">
-          <img
-            src={vodafoneCashLogo.url}
-            alt="المحفظة"
-            width={90}
-            height={110}
-            className="size-7 rounded-full object-cover"
-          />
+          <span className="grid size-7 place-items-center">
+            <img
+              src={vodafoneCashLogo.url}
+              alt="المحفظة"
+              width={90}
+              height={110}
+              className="size-7 rounded-full object-cover"
+            />
+          </span>
           <span className="mt-1 text-[11px] font-bold">المحفظة</span>
         </Button>
         <Button variant="nav" size="nav" onClick={goToTransfer}>
-          <TransferIcon className="size-7" />
+          <span className="grid size-7 place-items-center">
+            <TransferIcon className="size-7" />
+          </span>
           <span className="mt-1 text-[11px]">تحويل أموال</span>
         </Button>
         <Button variant="nav" size="nav">
-          <ServicesIcon className="size-7" />
+          <span className="grid size-7 place-items-center">
+            <ServicesIcon className="size-7" />
+          </span>
           <span className="mt-1 text-[11px]">الخدمات</span>
         </Button>
       </nav>
