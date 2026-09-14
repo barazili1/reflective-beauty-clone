@@ -516,8 +516,14 @@ function Index() {
         aria-label="التنقل الرئيسي"
       >
         <Button variant="nav" size="nav" className="text-alert">
-          <span className="grid size-7 place-items-center">
-            <WalletIcon className="size-7" />
+          <span className="grid size-7 place-items-center overflow-hidden rounded-full bg-white">
+            <img
+              src={cashLogoClean.url}
+              alt="المحفظة"
+              width={28}
+              height={28}
+              className="size-7 rounded-full object-cover object-[center_25%]"
+            />
           </span>
           <span className="mt-1 text-[11px] font-bold">المحفظة</span>
         </Button>
