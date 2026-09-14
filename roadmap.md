@@ -1,6 +1,8 @@
 # Tasks
-
-- [x] Wallet nav button: use clean cash logo (IMG_5517.jpeg), keep aligned with other nav icons
-- [x] Loading icon: use IMG_5521.png as the transfer-loading overlay icon
-- [x] Hide background image (SVG chart) in the expenses (مصروفاتك) box
-- [x] Success page: 2s after load, slide a notification down from top (exactly like IMG_5571.jpeg, same style/font), auto-dismiss after 4s, play iPhone notification sound (m4a) when it appears
+- [x] زر المحفظة في الشريط السفلي باللوجو النضيف ومظبوط
+- [x] أيقونة التحميل بصورة IMG_5521.png
+- [x] إخفاء الرسم البياني من خلفية خانة مصروفاتك
+- [x] إشعار iOS على صفحة النجاح (يظهر بعد 2ث، يختفي بعد 4ث، مع صوت الآيفون)
+- [x] تأكيد → تحميل 1.5ث → شاشة الرقم السري (الباسورد 202020) ثم صفحة النجاح
+- [ ] تثبيت الرقم المرجعي العشوائي في /success (عرض معلّق)
+- [ ] cash-watermark و cash-phone-logo لسه بدائل

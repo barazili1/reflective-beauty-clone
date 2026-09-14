@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import cashLogo from "@/assets/kashla-logo.asset.json";
 import cashWatermark from "@/assets/cash-watermark.png.asset.json";
 import loadingLogo from "@/assets/vodafone-loading-logo.png.asset.json";
+import { PinSheet } from "@/components/pin-sheet";
 import { getSenderNameForPhone } from "@/lib/sender-names";
 
 export const Route = createFileRoute("/confirm")({
@@ -30,19 +31,25 @@ function ConfirmPage() {
   const navigate = useNavigate();
   const [greeting, setGreeting] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
+  const [pinOpen, setPinOpen] = useState(false);
   const senderName = useMemo(() => getSenderNameForPhone(phone), [phone]);
   const total = amount.toFixed(1);
 
   const handleConfirm = () => {
-    if (confirmLoading) return;
+    if (confirmLoading || pinOpen) return;
     setConfirmLoading(true);
-    const delay = 3000 + Math.random() * 7000;
     setTimeout(() => {
-      void navigate({
-        to: "/success",
-        search: { amount, phone, senderName },
-      });
-    }, delay);
+      setConfirmLoading(false);
+      setPinOpen(true);
+    }, 1500);
+  };
+
+  const handlePinComplete = () => {
+    setPinOpen(false);
+    void navigate({
+      to: "/success",
+      search: { amount, phone, senderName },
+    });
   };
 
   return (
@@ -161,6 +168,10 @@ function ConfirmPage() {
           تأكيد
         </button>
       </div>
+
+      {pinOpen && (
+        <PinSheet onClose={() => setPinOpen(false)} onComplete={handlePinComplete} />
+      )}
 
       {confirmLoading && (
         <div className="fixed inset-0 z-40 mx-auto flex max-w-[430px] flex-col items-center justify-center bg-[#7a7a7a]/90">
