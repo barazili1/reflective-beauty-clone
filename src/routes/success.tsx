@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import cashLogo from "@/assets/kashla-logo.asset.json";
 import vodafoneCashCombo from "@/assets/vodafone-cash-combo.png.asset.json";
-import cashWatermark from "@/assets/cash-watermark.png.asset.json";
+
 import iphoneSound from "@/assets/iphone-notification.m4a.asset.json";
 import { addTransfer } from "@/lib/transfer-history";
 
