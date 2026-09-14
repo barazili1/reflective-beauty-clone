@@ -3,7 +3,7 @@ import { Check, ChevronRight, MessageCircle, Share2, User } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import cashLogo from "@/assets/kashla-logo.asset.json";
-import vodafoneCashLogo from "@/assets/cash-logo.asset.json";
+import vodafoneCashCombo from "@/assets/vodafone-cash-combo.jpeg.asset.json";
 import cashWatermark from "@/assets/cash-watermark.png.asset.json";
 import iphoneSound from "@/assets/iphone-notification.m4a.asset.json";
 import { addTransfer } from "@/lib/transfer-history";
