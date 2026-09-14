@@ -10,6 +10,7 @@ import gasIcon from "@/assets/icon-gas.asset.json";
 import offerBanner from "@/assets/offer-banner.jpg";
 import prosecutionIcon from "@/assets/icon-prosecution.asset.json";
 import vodafoneCashLogo from "@/assets/cash-logo.asset.json";
+import cashLogoClean from "@/assets/cash-logo-clean.jpeg.asset.json";
 import loadingLogo from "@/assets/vodafone-loading-logo.png.asset.json";
 import { getTransfers, formatArabicNumber, formatArabicDate, type TransferRecord } from "@/lib/transfer-history";
 
@@ -108,15 +109,6 @@ function ServicesIcon(props: IconProps) {
   );
 }
 
-function WalletIcon(props: IconProps) {
-  return (
-    <svg {...iconDefaults} {...props}>
-      <path d="M10 14h28a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4Z" />
-      <path d="M10 14V10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v2" />
-      <circle cx="32" cy="26" r="2.5" />
-    </svg>
-  );
-}
 
 const shortcuts = [
   {
@@ -337,36 +329,9 @@ function Index() {
         </div>
 
         <div className="mt-[7px] grid grid-cols-2 gap-2" dir="rtl">
-          <div className="relative h-[210px] overflow-hidden rounded-[16px] bg-panel p-3">
-            <h2 className="text-[16px] font-extrabold">مصروفاتك</h2>
-            <svg
-              viewBox="0 0 200 150"
-              preserveAspectRatio="none"
-              className="absolute inset-x-0 bottom-0 h-[150px] w-full"
-              aria-hidden="true"
-            >
-              <g stroke="currentColor" className="text-foreground/10" strokeWidth="1">
-                <line x1="0" y1="20" x2="200" y2="20" />
-                <line x1="0" y1="50" x2="200" y2="50" />
-                <line x1="0" y1="80" x2="200" y2="80" />
-                <line x1="0" y1="110" x2="200" y2="110" />
-                <line x1="40" y1="0" x2="40" y2="150" />
-                <line x1="80" y1="0" x2="80" y2="150" />
-                <line x1="120" y1="0" x2="120" y2="150" />
-                <line x1="160" y1="0" x2="160" y2="150" />
-              </g>
-              <defs>
-                <linearGradient id="expenseFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#4e8589" />
-                  <stop offset="100%" stopColor="#4e8589" stopOpacity="0.15" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M0 150 L0 120 C30 122 45 100 70 92 C95 84 105 60 130 52 C155 44 170 20 200 6 L200 150 Z"
-                fill="url(#expenseFill)"
-              />
-            </svg>
-            <p className="absolute bottom-2 right-3 flex items-baseline gap-1 text-[15px]" dir="rtl">
+          <div className="relative flex h-[210px] flex-col justify-end overflow-hidden rounded-[16px] bg-panel p-3">
+            <h2 className="absolute right-3 top-3 text-[16px] font-extrabold">مصروفاتك</h2>
+            <p className="flex items-baseline gap-1 text-[15px]" dir="rtl">
               <span className="text-[34px] font-normal leading-none">{formatArabicNumber(expenses)}</span>
               <span>جنيه</span>
             </p>
@@ -515,8 +480,17 @@ function Index() {
         aria-label="التنقل الرئيسي"
       >
         <Button variant="nav" size="nav" className="text-alert">
-          <span className="grid size-7 place-items-center">
-            <WalletIcon className="size-7" />
+          <span
+            className="flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-white"
+            style={{ height: "28px", width: "28px" }}
+          >
+            <img
+              src={cashLogoClean.url}
+              alt="المحفظة"
+              width={28}
+              height={28}
+              className="h-[28px] w-[28px] rounded-full object-cover object-[center_25%]"
+            />
           </span>
           <span className="mt-1 text-[11px] font-bold">المحفظة</span>
         </Button>
