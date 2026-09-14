@@ -142,6 +142,51 @@ function SuccessPage() {
       dir="rtl"
       className="mx-auto flex min-h-dvh max-w-[430px] flex-col bg-[#F8F9FA] text-foreground shadow-2xl"
     >
+      {/* iOS-style push notification */}
+      <audio ref={audioRef} src={iphoneSound.url} preload="auto" />
+      <div className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-2">
+        <div
+          dir="rtl"
+          className="flex w-full max-w-[400px] items-start gap-3 rounded-[26px] bg-[#3c3c3e] px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform"
+          style={{
+            transform: showNotif ? "translateY(0)" : "translateY(-160%)",
+            fontFamily:
+              '-apple-system, "SF Arabic", "SF Pro Arabic", system-ui, "Tajawal", sans-serif',
+          }}
+        >
+          {/* Avatar + Messages badge (far right) */}
+          <div className="relative shrink-0 pt-0.5">
+            <div
+              className="grid size-[42px] place-items-center rounded-full"
+              style={{
+                background:
+                  "linear-gradient(135deg, #97A5CF 0%, #7d8cc0 100%)",
+              }}
+            >
+              <User className="size-[22px] text-white" strokeWidth={2} />
+            </div>
+            <div className="absolute -bottom-1 left-0 grid size-[24px] place-items-center rounded-[7px] bg-[#64D65F] shadow-sm">
+              <MessageCircle className="size-[14px] text-white" strokeWidth={2.5} />
+            </div>
+          </div>
+          {/* Text column */}
+          <div className="min-w-0 flex-1 text-right">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] leading-none text-white/55">الآن</span>
+              <span className="text-[14px] font-bold leading-none text-white">
+                VF-Cash
+              </span>
+            </div>
+            <p className="mt-1.5 text-[13px] leading-[1.35] text-white">
+              تم تحويل {amount} جنيه لرقم {phone || "01151146419"} مصاريف
+            </p>
+            <p className="mt-0.5 text-[13px] leading-[1.35] text-white/85 truncate">
+              الخدمة 0 جنيه رصيد حسابك فى فودافون كاش الح...
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
       <header className="relative flex h-[52px] shrink-0 items-center justify-center bg-white">
         <h1 className="text-[20px] font-bold">تم بنجاح</h1>
