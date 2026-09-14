@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { ArrowUpRight, Bell, ChevronLeft, CreditCard, Delete, Eye, EyeOff, Fingerprint, Gift, HelpCircle, Lock, Send, Store, X } from "lucide-react";
+import { ArrowUpRight, Bell, ChevronLeft, CreditCard, Eye, EyeOff, Fingerprint, Gift, HelpCircle, Lock, Send, Store, X } from "lucide-react";
 import { type SVGProps, useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -511,13 +511,6 @@ function Index() {
   );
 }
 
-function PinSheet({
-  onClose,
-  onComplete,
-}: {
-  onClose: () => void;
-  onComplete: () => void;
-}) {
   const [pin, setPin] = useState("");
 
   const press = (digit: string) => {
